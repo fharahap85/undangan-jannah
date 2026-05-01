@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Digital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Opening / Hero Section -->
+    <section id="opening" class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-content container">
+            <p class="greeting" id="opening-greeting"></p>
+            <h1 class="couple-names">
+                <span id="groom-nickname"></span> & <span id="bride-nickname"></span>
+            </h1>
+            <p class="to-guest" id="guest-name-container">
+                Kepada Yth. <br>
+                <span id="guest-name">Tamu Undangan</span>
+            </p>
+            <p class="date-highlight" id="date-highlight"></p>
+            <button id="btn-open-invitation" class="btn-primary"></button>
+        </div>
+    </section>
+
+    <!-- Main Content Wrapper (Hidden initially) -->
+    <main id="main-content" class="content-wrapper hidden">
+        
+        <!-- Mukadimah Section -->
+        <section id="mukadimah" class="section-padding container">
+            <div class="quote-container text-center reveal">
+                <p class="arabic" id="quote-arabic"></p>
+                <p class="translation" id="quote-translation"></p>
+                <p class="source" id="quote-source"></p>
+            </div>
+        </section>
+
+        <!-- Mempelai Section -->
+        <section id="mempelai" class="section-padding container">
+            <h2 class="section-title text-center reveal">Kedua Mempelai</h2>
+            <div class="couple-details flex-grid">
+                <div class="mempelai-card reveal">
+                    <h3 id="groom-fullname"></h3>
+                    <p id="groom-parents"></p>
+                </div>
+                <div class="and-symbol reveal">&</div>
+                <div class="mempelai-card reveal">
+                    <h3 id="bride-fullname"></h3>
+                    <p id="bride-parents"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acara Section -->
+        <section id="acara" class="section-padding container">
+            <h2 class="section-title text-center reveal">Waktu & Tempat</h2>
+            <div id="events-container" class="events-grid flex-grid">
+                <!-- Events will be injected here -->
+            </div>
+        </section>
+
+        <!-- Amplop Section -->
+        <section id="amplop" class="section-padding container">
+            <h2 class="section-title text-center reveal">Kado Digital</h2>
+            <p class="text-center reveal">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, Anda dapat mengirimkannya melalui:</p>
+            <div id="bank-accounts" class="bank-grid flex-grid reveal">
+                <!-- Bank accounts will be injected here -->
+            </div>
+        </section>
+
+        <!-- Ucapan & RSVP Section -->
+        <section id="ucapan" class="section-padding container">
+            <h2 class="section-title text-center reveal">Ucapan & Doa</h2>
+            
+            <!-- RSVP Form -->
+            <div class="rsvp-form-container reveal">
+                <form id="form-rsvp">
+                    <div class="form-group">
+                        <label for="input-nama">Nama</label>
+                        <input type="text" id="input-nama" required placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-kehadiran">Konfirmasi Kehadiran</label>
+                        <select id="input-kehadiran" required>
+                            <option value="">-- Pilih Kehadiran --</option>
+                            <option value="Hadir">Hadir</option>
+                            <option value="Tidak Hadir">Tidak Hadir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-ucapan">Ucapan & Doa</label>
+                        <textarea id="input-ucapan" rows="4" required placeholder="Tuliskan ucapan dan doa terbaik Anda"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Kirim Ucapan</button>
+                    <button type="button" id="btn-wa-rsvp" class="btn-secondary full-width mt-1">Konfirmasi via WhatsApp</button>
+                </form>
+            </div>
+
+            <!-- Wishes List -->
+            <div id="wishes-list" class="wishes-container mt-3 reveal">
+                <p class="text-center italic">Memuat ucapan...</p>
+            </div>
+        </section>
+
+        <footer class="footer text-center section-padding">
+            <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+            <p class="mt-2">Kami yang berbahagia,</p>
+            <h3 id="footer-couple-names"></h3>
+        </footer>
+
+    </main>
+
+    <!-- Floating Navigation Menu -->
+    <nav id="floating-menu" class="floating-menu hidden">
+        <a href="#opening" class="menu-item" title="Home"><i class="icon-home"></i><span>Home</span></a>
+        <a href="#mempelai" class="menu-item" title="Mempelai"><i class="icon-heart"></i><span>Mempelai</span></a>
+        <a href="#acara" class="menu-item" title="Acara"><i class="icon-calendar"></i><span>Acara</span></a>
+        <a href="#amplop" class="menu-item" title="Kado"><i class="icon-gift"></i><span>Kado</span></a>
+        <a href="#ucapan" class="menu-item" title="Ucapan"><i class="icon-message"></i><span>Ucapan</span></a>
+    </nav>
+
+    <!-- Audio Player -->
+    <div id="audio-container" class="audio-control">
+        <button id="btn-audio" class="btn-audio">
+            <span class="icon-music"></span>
+        </button>
+        <audio id="bg-audio" loop>
+            <source src="" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- JS Files -->
+    <script src="js/data-loader.js"></script>
+    <script src="js/rsvp.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

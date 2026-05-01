@@ -1,0 +1,52 @@
+/* Animations */
+
+/* Scroll Reveal */
+.reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s ease-out;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pulse Button */
+@keyframes pulse-gold {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+#btn-open-invitation {
+    animation: pulse-gold 2s infinite;
+}
+
+/* Fade Out Overlay */
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+/* Section Transitions */
+.content-wrapper {
+    transition: opacity 1.5s ease;
+}
+
+.content-wrapper.hidden {
+    opacity: 0;
+    display: none;
+}
+
+/* Floating Menu Entry */
+.floating-menu {
+    animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translate(-50%, 100px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}

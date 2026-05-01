@@ -1,0 +1,60 @@
+/* Responsive Design */
+
+/* Mobile Portrait (< 576px) */
+@media (max-width: 575.98px) {
+    .hero-content .couple-names {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-padding {
+        padding: 50px 0;
+    }
+    
+    .floating-menu {
+        width: 95%;
+        gap: 10px;
+        padding: 8px 15px;
+    }
+    
+    .menu-item span {
+        display: none; /* Hide labels on mobile to save space */
+    }
+}
+
+/* Tablets (576px - 991.98px) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .hero-content .couple-names {
+        font-size: 4rem;
+    }
+    
+    .flex-grid {
+        flex-direction: column;
+    }
+    
+    .mempelai-card, .event-card {
+        width: 100%;
+    }
+}
+
+/* Desktop Large / Ultrawide (> 1200px) */
+@media (min-width: 1201px) {
+    .container {
+        max-width: 1100px; /* Keep content readable on huge screens */
+    }
+}
+
+/* Adjustments for horizontal mobile */
+@media (max-height: 500px) {
+    .hero-section {
+        height: auto;
+        padding: 100px 0;
+    }
+    
+    .floating-menu {
+        bottom: 10px;
+    }
+}

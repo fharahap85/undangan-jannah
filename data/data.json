@@ -1,0 +1,65 @@
+{
+  "general": {
+    "title": "Walimatul 'Ursy - Abi & Jannah",
+    "theme_color": {
+      "primary": "#d4af37",
+      "bg_dark": "#0f2027",
+      "text": "#ffffff"
+    },
+    "background_image": "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070&auto=format&fit=crop",
+    "backsound": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  },
+  "opening": {
+    "greeting": "Bismillahirahmanirrahim",
+    "groom_nickname": "Abi",
+    "bride_nickname": "Jannah",
+    "date_highlight": "Sabtu, 12 Desember 2026",
+    "button_text": "Buka Undangan"
+  },
+  "quotes": {
+    "arabic": "وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ...",
+    "translation": "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
+    "source": "(QS. Ar-Rum: 21)"
+  },
+  "couple": {
+    "groom": {
+      "full_name": "Abi bin Fulan",
+      "parents": "Putra dari Bapak X & Ibu Y"
+    },
+    "bride": {
+      "full_name": "Jannah binti Fulan",
+      "parents": "Putri dari Bapak A & Ibu B"
+    }
+  },
+  "events": [
+    {
+      "id": "akad",
+      "type": "Akad Nikah",
+      "date": "Sabtu, 12 Desember 2026",
+      "time": "08:00 WIB - Selesai",
+      "location_name": "Masjid Raya Bintaro Jaya",
+      "address": "Jl. Maleo Raya, Bintaro Sektor 9, Tangerang Selatan",
+      "maps_link": "https://maps.app.goo.gl/uX3fU6S2XGq7f8z7A"
+    },
+    {
+      "id": "resepsi",
+      "type": "Resepsi",
+      "date": "Sabtu, 12 Desember 2026",
+      "time": "11:00 WIB - 14:00 WIB",
+      "location_name": "Gedung Serbaguna Bintaro",
+      "address": "Jl. Jendral Sudirman No. 1, Tangerang Selatan",
+      "maps_link": "https://maps.app.goo.gl/uX3fU6S2XGq7f8z7A"
+    }
+  ],
+  "api": {
+    "google_script_url": "https://script.google.com/macros/s/xxxx/exec",
+    "whatsapp_number": "6281234567890"
+  },
+  "digital_envelope": [
+    {
+      "bank": "BSI",
+      "account_number": "1234567890",
+      "account_name": "Abi"
+    }
+  ]
+}

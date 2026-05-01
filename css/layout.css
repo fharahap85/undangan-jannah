@@ -1,0 +1,207 @@
+/* Layout & Components */
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-dark);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.hero-content .greeting {
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.hero-content .couple-names {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.hero-content .to-guest {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero-content .to-guest span {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.hero-content .date-highlight {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* Floating Menu */
+.floating-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 32, 39, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    padding: 10px 25px;
+    display: flex;
+    gap: 20px;
+    z-index: 999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.menu-item {
+    text-decoration: none;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    transition: var(--transition-fast);
+}
+
+.menu-item:hover, .menu-item.active {
+    color: var(--primary-color);
+}
+
+.menu-item i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+}
+
+/* Custom Icons (Simplified for demo) */
+.icon-home::before { content: '🏠'; }
+.icon-heart::before { content: '❤️'; }
+.icon-calendar::before { content: '📅'; }
+.icon-gift::before { content: '🎁'; }
+.icon-message::before { content: '💬'; }
+
+/* Cards & Components */
+.mempelai-card {
+    flex: 1;
+    min-width: 280px;
+    padding: 30px;
+    text-align: center;
+}
+
+.mempelai-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.and-symbol {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.event-card:hover {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.event-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* RSVP Form */
+.rsvp-form-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-family: var(--font-body);
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Wishes List */
+.wish-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.wish-card .name {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.wish-card .msg {
+    font-size: 0.95rem;
+}
+
+.wish-card .presence {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
