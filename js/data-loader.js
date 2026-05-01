@@ -14,6 +14,7 @@ const DataLoader = (() => {
             return appData;
         } catch (error) {
             console.error('Error loading data:', error);
+            alert("INFORMASI PENTING:\nWebsite belum jalan sempurna karena Anda membukanya langsung via file://. Browser memblokir pengambilan data karena aturan keamanan (CORS).\n\nSilakan gunakan Local Server (misal: Live Server di VS Code) atau segera push kode ini ke GitHub Pages agar berfungsi normal!");
             return null;
         }
     };
