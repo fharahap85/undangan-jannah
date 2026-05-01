@@ -21,11 +21,10 @@ const RSVP = (() => {
 
         try {
             // Send to Google Sheets (Apps Script)
-            if (googleScriptUrl && googleScriptUrl !== 'https://script.google.com/macros/s/xxxx/exec') {
+            if (googleScriptUrl && !googleScriptUrl.includes('xxxx')) {
                 await fetch(googleScriptUrl, {
                     method: 'POST',
-                    mode: 'no-cors', // Common for Apps Script
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(formData)
                 });
             }
