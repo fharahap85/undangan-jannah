@@ -3,87 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator Link Undangan</title>
+    <title>SaaS Link Generator - Undangan Imam & Jannah</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; max-width: 600px; margin: auto; background: #f9f9f9; color: #333; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-        h2 { color: #d4af37; text-align: center; margin-bottom: 25px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; }
-        input, textarea, button { width: 100%; margin-bottom: 20px; padding: 12px; box-sizing: border-box; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
-        input:focus, textarea:focus { outline: none; border-color: #d4af37; }
-        button { background: #d4af37; color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s; font-size: 16px; }
-        button:hover { background: #b5952f; }
-        .result-box { display: none; background: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37; }
-        .btn-secondary { background: #444; margin-top: 10px; }
-        .btn-secondary:hover { background: #222; }
-        .btn-wa { background: #25d366; color: white; margin-top: 10px; }
+        :root {
+            --primary: #d4af37;
+            --primary-hover: #b5952f;
+            --bg-dark: #0f2027;
+            --text-light: #f4f4f9;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card-header h2 { 
+            color: var(--primary); 
+            margin: 0 0 10px 0; 
+        }
+
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        input, textarea { 
+            width: 100%; 
+            padding: 15px; 
+            box-sizing: border-box; 
+            border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 10px; 
+            font-size: 14px; 
+            background: rgba(0,0,0,0.2);
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus { 
+            outline: none; 
+            border-color: var(--primary); 
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        button { 
+            background: var(--primary); 
+            color: var(--bg-dark); 
+            border: none; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            font-size: 16px; 
+            padding: 15px;
+            border-radius: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-2px);
+        }
+
+        .btn-wa { background: #25d366; color: white; }
         .btn-wa:hover { background: #128c7e; }
-        .btn-tg { background: #0088cc; color: white; margin-top: 10px; }
+        .btn-tg { background: #0088cc; color: white; }
         .btn-tg:hover { background: #006699; }
-        .share-group { display: flex; gap: 10px; flex-wrap: wrap; }
-        .share-group button { flex: 1; min-width: 120px; }
+        .btn-copy { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-copy:hover { background: rgba(255,255,255,0.2); }
+
+        .preview-box { 
+            display: none; 
+            background: rgba(0,0,0,0.3); 
+            padding: 20px; 
+            border-radius: 12px; 
+            border-left: 4px solid var(--primary); 
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .share-group { 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        .history-box {
+            margin-top: 30px;
+        }
+
+        .history-list {
+            list-style: none;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 5px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .history-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .history-item .delete-btn {
+            background: none;
+            color: #ff6b6b;
+            width: auto;
+            padding: 5px;
+            margin: 0;
+        }
+
+        .history-item .delete-btn:hover {
+            color: #ff3b3b;
+            transform: none;
+        }
+        
+        .icon { width: 20px; height: 20px; fill: currentColor; }
+
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Buat Link Undangan WA</h2>
-        
-        <label for="guestName">Nama Tamu (Bisa pakai gelar):</label>
-        <input type="text" id="guestName" placeholder="Contoh: Bapak Budi S.Kom">
-        
-        <button onclick="generateLink()">Buat Pesan WA & Link</button>
-
-        <div id="resultBox" class="result-box">
-            <label for="resultText">Hasil Teks untuk di-Copy ke WA:</label>
-            <textarea id="resultText" rows="12"></textarea>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Generator Link</h2>
+                <p style="color: #aaa; font-size: 0.9rem; margin:0;">Buat link undangan personal otomatis</p>
+            </div>
             
-            <div class="share-group">
-                <button onclick="copyToClipboard()" class="btn-secondary">Salin Teks</button>
-                <button onclick="shareWA()" class="btn-wa">Kirim ke WA</button>
-                <button onclick="shareTG()" class="btn-tg">Kirim ke Telegram</button>
+            <label for="guestName">Nama Tamu (Bisa pakai gelar/posisi):</label>
+            <input type="text" id="guestName" placeholder="Contoh: Bapak Budi S.Kom, Manager IT">
+            
+            <button onclick="generateLink()">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                Buat Pesan & Link
+            </button>
+
+            <!-- History Section -->
+            <div class="history-box">
+                <label>Riwayat Pembuatan Link (Tersimpan Lokal):</label>
+                <ul class="history-list" id="historyList">
+                    <li style="color:#777; font-size: 0.8rem; text-align: center; padding: 10px;">Belum ada riwayat</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="card" id="previewContainer" style="display: flex; flex-direction: column;">
+            <div class="card-header" style="margin-bottom: 10px;">
+                <h2 style="font-size: 1.5rem;">Preview Pesan</h2>
+            </div>
+            
+            <div id="resultBox" class="preview-box" style="flex: 1; display: flex; flex-direction: column;">
+                <textarea id="resultText" style="flex: 1; min-height: 250px; font-size: 13px;" readonly></textarea>
+                
+                <div class="share-group">
+                    <button onclick="shareWA()" class="btn-wa">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.46 14.1c-.2.56-1.16 1.09-1.6 1.15-.41.05-.98.15-3.08-.72-2.52-1.05-4.14-3.63-4.26-3.79-.13-.16-1.02-1.36-1.02-2.59 0-1.23.64-1.83.87-2.08.23-.25.5-.31.67-.31.17 0 .34 0 .49.01.16.01.38-.06.6.48.23.55.77 1.87.84 2.01.07.14.11.31.02.5-.09.18-.14.3-.28.46-.14.16-.3.35-.42.48-.14.14-.29.3-.13.58.16.28.72 1.2 1.55 1.95.1.09.2.16.32.25.1.07.21.12.33.15.86.67 1.59.88 1.83.92.24.04.53-.02.73-.24.2-.22.87-.96 1.1-.11.23.85.23 1.23.11 1.48z"/></svg>
+                        WhatsApp
+                    </button>
+                    <button onclick="shareTG()" class="btn-tg">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M11.94 2C6.4 2 2 6.4 2 11.94c0 5.54 4.4 9.94 9.94 9.94 5.54 0 9.94-4.4 9.94-9.94C21.88 6.4 17.48 2 11.94 2zm5.73 7.3l-1.92 9.04c-.14.62-.51.77-1.03.48l-2.85-2.1-1.37 1.32c-.15.15-.28.28-.57.28l.2-2.9 5.27-4.76c.23-.21-.05-.33-.35-.13l-6.52 4.11-2.8-.88c-.61-.19-.62-.61.13-.9l10.94-4.22c.5-.18.95.12.83.96z"/></svg>
+                        Telegram
+                    </button>
+                    <button onclick="copyToClipboard()" class="btn-copy full-width">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        Salin Teks Lengkap
+                    </button>
+                </div>
+            </div>
+            
+            <div id="emptyPreview" style="flex:1; display:flex; align-items:center; justify-content:center; color:#555; text-align:center;">
+                <p>Silakan buat link terlebih dahulu untuk melihat preview pesan.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Sesuaikan dengan domain yang sudah dikonfigurasi
         const baseUrl = "https://jannah-abi.afhprojects.web.id/"; 
-        
-        function generateLink() {
-            const nameInput = document.getElementById('guestName').value.trim();
+        const HISTORY_KEY = 'jannah_invitation_history';
+
+        // Load history on start
+        document.addEventListener('DOMContentLoaded', loadHistory);
+
+        function generateLink(historyName = null) {
+            const nameInput = historyName || document.getElementById('guestName').value.trim();
+            
             if (!nameInput) {
                 alert('Nama tamu harus diisi!');
+                document.getElementById('guestName').focus();
                 return;
             }
             
-            // Format nama agar aman di URL (mengubah spasi menjadi %20 atau +)
+            document.getElementById('guestName').value = nameInput; // Set input if from history
+
+            // Encode and create URL
             const encodedName = encodeURIComponent(nameInput);
             const finalUrl = `${baseUrl}?to=${encodedName}`;
             
-            // Template kalimat undangan WA
-            const waTemplate = `Assalamu'alaikum Warahmatullahi Wabarakatuh\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i:\n*${nameInput}*\n\nUntuk hadir dan memberikan doa restu pada acara pernikahan kami. Detail acara dapat dilihat pada tautan undangan digital berikut:\n\n${finalUrl}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di hari bahagia ini.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh\n\nKami yang berbahagia,\nAbi & Jannah`;
+            // Template
+            const waTemplate = `Assalamu'alaikum Warahmatullahi Wabarakatuh\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i:\n*${nameInput}*\n\nUntuk hadir dan memberikan doa restu pada acara pernikahan kami. Detail acara dapat dilihat pada tautan undangan digital berikut:\n\n${finalUrl}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di hari bahagia ini.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh\n\nKami yang berbahagia,\nImam & Jannah`;
             
+            // Update UI
             document.getElementById('resultText').value = waTemplate;
-            document.getElementById('resultBox').style.display = 'block';
+            document.getElementById('resultBox').style.display = 'flex';
+            document.getElementById('emptyPreview').style.display = 'none';
+
+            // Save to history if new
+            if (!historyName) {
+                saveToHistory(nameInput);
+            }
         }
 
         function copyToClipboard() {
             const copyText = document.getElementById("resultText");
             copyText.select();
             document.execCommand("copy");
-            alert("Teks dan Link berhasil disalin! Silakan paste di WhatsApp.");
+            alert("Teks berhasil disalin! Silakan paste di WhatsApp.");
         }
 
         function shareWA() {
             const text = document.getElementById("resultText").value;
-            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         function shareTG() {
             const text = document.getElementById("resultText").value;
-            const url = `https://t.me/share/url?url=${encodeURIComponent(baseUrl)}&text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(baseUrl)}&text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // History Management
+        function saveToHistory(name) {
+            let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            if (!history.includes(name)) {
+                history.unshift(name); // Add to top
+                if (history.length > 50) history.pop(); // Keep max 50
+                localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+                loadHistory();
+            }
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            const listElement = document.getElementById('historyList');
+            
+            if (history.length === 0) {
+                listElement.innerHTML = '<li style="color:#777; font-size: 0.8rem; text-align: center; padding: 10px;">Belum ada riwayat</li>';
+                return;
+            }
+
+            listElement.innerHTML = history.map((name, index) => `
+                <li class="history-item">
+                    <span onclick="generateLink('${name}')" style="flex:1;">${name}</span>
+                    <button class="delete-btn" onclick="deleteHistory(${index})" title="Hapus">✕</button>
+                </li>
+            `).join('');
+        }
+
+        function deleteHistory(index) {
+            let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            history.splice(index, 1);
+            localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+            loadHistory();
         }
     </script>
 </body>
