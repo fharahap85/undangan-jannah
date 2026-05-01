@@ -20,6 +20,7 @@
     <section id="opening" class="hero-section">
         <div class="overlay"></div>
         <div class="hero-content container">
+            <h2 class="bismillah-arabic reveal">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2>
             <p class="greeting" id="opening-greeting"></p>
             <h1 class="couple-names">
                 <span id="groom-nickname"></span> & <span id="bride-nickname"></span>
@@ -46,7 +47,7 @@
         </section>
 
         <!-- Mempelai Section -->
-        <section id="mempelai" class="section-padding container">
+        <section id="mempelai" class="section-padding container section-alt">
             <h2 class="section-title text-center reveal">Kedua Mempelai</h2>
             <div class="couple-details flex-grid">
                 <div class="mempelai-card reveal">
@@ -64,13 +65,34 @@
         <!-- Acara Section -->
         <section id="acara" class="section-padding container">
             <h2 class="section-title text-center reveal">Waktu & Tempat</h2>
+            
+            <!-- Countdown Timer -->
+            <div id="countdown" class="countdown-container reveal mb-3">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <small>Hari</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <small>Jam</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <small>Menit</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <small>Detik</small>
+                </div>
+            </div>
+
             <div id="events-container" class="events-grid flex-grid">
                 <!-- Events will be injected here -->
             </div>
         </section>
 
         <!-- Amplop Section -->
-        <section id="amplop" class="section-padding container">
+        <section id="amplop" class="section-padding container section-alt">
             <h2 class="section-title text-center reveal">Kado Digital</h2>
             <p class="text-center reveal">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, Anda dapat mengirimkannya melalui:</p>
             <div id="bank-accounts" class="bank-grid flex-grid reveal">
@@ -139,7 +161,7 @@
 
     <!-- Floating Navigation Menu -->
     <nav id="floating-menu" class="floating-menu hidden floating-anim">
-        <a href="#opening" class="menu-item" title="Home"><img src="assets/images/icons/home.svg" class="icon" alt="Home"><span>Home</span></a>
+        <a href="#mukadimah" class="menu-item" title="Home"><img src="assets/images/icons/home.svg" class="icon" alt="Home"><span>Home</span></a>
         <a href="#mempelai" class="menu-item" title="Mempelai"><img src="assets/images/icons/heart.svg" class="icon" alt="Mempelai"><span>Mempelai</span></a>
         <a href="#acara" class="menu-item" title="Acara"><img src="assets/images/icons/calendar.svg" class="icon" alt="Acara"><span>Acara</span></a>
         <a href="#amplop" class="menu-item" title="Kado"><img src="assets/images/icons/gift.svg" class="icon" alt="Kado"><span>Kado</span></a>

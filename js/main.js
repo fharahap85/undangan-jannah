@@ -131,4 +131,36 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+
+    // 9. Countdown Timer Logic
+    const startCountdown = (dateStr) => {
+        // Extract date components from "Kamis, 14 Mei 2026" or similar
+        // For simplicity, let's target May 14, 2026
+        const targetDate = new Date("May 14, 2026 08:00:00").getTime();
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "<h3>Acara Sedang Berlangsung / Sudah Selesai</h3>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        };
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    };
+
+    startCountdown(appData.opening.date_highlight);
 });
