@@ -89,4 +89,46 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     });
+
+    // 8. Share Logic
+    const btnShareWA = document.getElementById('btn-share-wa');
+    const btnShareTG = document.getElementById('btn-share-tg');
+    const btnShareNative = document.getElementById('btn-share-native');
+
+    const shareTitle = appData.general.title;
+    const shareText = `Assalamu'alaikum, kami mengundang Anda untuk hadir di acara pernikahan ${appData.opening.groom_nickname} & ${appData.opening.bride_nickname}. Info lengkap silakan buka:`;
+    const shareUrl = window.location.href.split('?')[0]; // Clean URL
+
+    if (btnShareWA) {
+        btnShareWA.addEventListener('click', () => {
+            window.open(`https://wa.me/?text=${encodeURIComponent(shareText + '\n' + shareUrl)}`, '_blank');
+        });
+    }
+
+    if (btnShareTG) {
+        btnShareTG.addEventListener('click', () => {
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, '_blank');
+        });
+    }
+
+    if (btnShareNative) {
+        btnShareNative.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: shareTitle,
+                        text: shareText,
+                        url: shareUrl
+                    });
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                }
+            } else {
+                // Fallback: Copy to clipboard
+                navigator.clipboard.writeText(`${shareText}\n${shareUrl}`).then(() => {
+                    alert('Link berhasil disalin ke clipboard!');
+                });
+            }
+        });
+    }
 });

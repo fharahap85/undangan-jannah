@@ -16,6 +16,12 @@
         .result-box { display: none; background: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37; }
         .btn-secondary { background: #444; margin-top: 10px; }
         .btn-secondary:hover { background: #222; }
+        .btn-wa { background: #25d366; color: white; margin-top: 10px; }
+        .btn-wa:hover { background: #128c7e; }
+        .btn-tg { background: #0088cc; color: white; margin-top: 10px; }
+        .btn-tg:hover { background: #006699; }
+        .share-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .share-group button { flex: 1; min-width: 120px; }
     </style>
 </head>
 <body>
@@ -31,7 +37,11 @@
             <label for="resultText">Hasil Teks untuk di-Copy ke WA:</label>
             <textarea id="resultText" rows="12"></textarea>
             
-            <button onclick="copyToClipboard()" class="btn-secondary">Salin Teks Pesan</button>
+            <div class="share-group">
+                <button onclick="copyToClipboard()" class="btn-secondary">Salin Teks</button>
+                <button onclick="shareWA()" class="btn-wa">Kirim ke WA</button>
+                <button onclick="shareTG()" class="btn-tg">Kirim ke Telegram</button>
+            </div>
         </div>
     </div>
 
@@ -62,6 +72,18 @@
             copyText.select();
             document.execCommand("copy");
             alert("Teks dan Link berhasil disalin! Silakan paste di WhatsApp.");
+        }
+
+        function shareWA() {
+            const text = document.getElementById("resultText").value;
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareTG() {
+            const text = document.getElementById("resultText").value;
+            const url = `https://t.me/share/url?url=${encodeURIComponent(baseUrl)}&text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
