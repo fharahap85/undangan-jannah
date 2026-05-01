@@ -63,10 +63,14 @@ const DataLoader = (() => {
         const bankContainer = document.getElementById('bank-accounts');
         bankContainer.innerHTML = data.digital_envelope.map(bank => `
             <div class="event-card reveal" style="min-width: 250px;">
-                <h3>${bank.bank}</h3>
+                <h3 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <img src="assets/images/icons/bank.svg" style="width: 24px; height: 24px; filter: invert(72%) sepia(53%) saturate(583%) hue-rotate(3deg) brightness(97%) contrast(93%);" alt="Bank"> ${bank.bank}
+                </h3>
                 <p id="acc-${bank.account_number}">${bank.account_number}</p>
                 <p>a.n ${bank.account_name}</p>
-                <button class="btn-secondary mt-1 btn-copy" data-copy="${bank.account_number}">Salin No. Rekening</button>
+                <button class="btn-secondary mt-1 btn-copy" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;" data-copy="${bank.account_number}">
+                    <img src="assets/images/icons/copy.svg" style="width: 16px; height: 16px;" alt="Copy"> Salin No. Rekening
+                </button>
             </div>
         `).join('');
 
