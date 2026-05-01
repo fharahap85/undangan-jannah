@@ -50,3 +50,24 @@
     from { transform: translate(-50%, 100px); opacity: 0; }
     to { transform: translate(-50%, 0); opacity: 1; }
 }
+
+/* Continuous Floating Animation */
+@keyframes floating {
+    0% { transform: translate(-50%, 0px); }
+    50% { transform: translate(-50%, -10px); }
+    100% { transform: translate(-50%, 0px); }
+}
+
+.floating-anim {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes soft-float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.soft-float {
+    animation: soft-float 4s ease-in-out infinite;
+}

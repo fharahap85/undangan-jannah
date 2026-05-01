@@ -52,14 +52,19 @@
     }
   ],
   "api": {
-    "google_script_url": "https://script.google.com/macros/s/xxxx/exec",
-    "whatsapp_number": "6281234567890"
+    "google_script_url": "https://script.google.com/macros/s/AKfycbwnW5yDmBb4oVOGIvvG2tj6Szl-5T97A8Zz3NnxV30DkCfzNxKkZxlbLdyoNUucb6WFMw/exec",
+    "whatsapp_number": "6281262586674"
   },
   "digital_envelope": [
     {
       "bank": "BSI",
       "account_number": "1234567890",
-      "account_name": "Imam"
+      "account_name": "Imam Habibi"
+    },
+    {
+      "bank": "SeaBank",
+      "account_number": "0987654321",
+      "account_name": "Imam Habibi"
     }
   ]
 }
