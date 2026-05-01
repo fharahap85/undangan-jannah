@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Link Undangan</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; max-width: 600px; margin: auto; background: #f9f9f9; color: #333; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+        h2 { color: #d4af37; text-align: center; margin-bottom: 25px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+        input, textarea, button { width: 100%; margin-bottom: 20px; padding: 12px; box-sizing: border-box; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+        input:focus, textarea:focus { outline: none; border-color: #d4af37; }
+        button { background: #d4af37; color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s; font-size: 16px; }
+        button:hover { background: #b5952f; }
+        .result-box { display: none; background: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37; }
+        .btn-secondary { background: #444; margin-top: 10px; }
+        .btn-secondary:hover { background: #222; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Buat Link Undangan WA</h2>
+        
+        <label for="guestName">Nama Tamu (Bisa pakai gelar):</label>
+        <input type="text" id="guestName" placeholder="Contoh: Bapak Budi S.Kom">
+        
+        <button onclick="generateLink()">Buat Pesan WA & Link</button>
+
+        <div id="resultBox" class="result-box">
+            <label for="resultText">Hasil Teks untuk di-Copy ke WA:</label>
+            <textarea id="resultText" rows="12"></textarea>
+            
+            <button onclick="copyToClipboard()" class="btn-secondary">Salin Teks Pesan</button>
+        </div>
+    </div>
+
+    <script>
+        // Sesuaikan dengan domain yang sudah dikonfigurasi
+        const baseUrl = "https://jannah-abi.afhprojects.web.id/"; 
+        
+        function generateLink() {
+            const nameInput = document.getElementById('guestName').value.trim();
+            if (!nameInput) {
+                alert('Nama tamu harus diisi!');
+                return;
+            }
+            
+            // Format nama agar aman di URL (mengubah spasi menjadi %20 atau +)
+            const encodedName = encodeURIComponent(nameInput);
+            const finalUrl = `${baseUrl}?to=${encodedName}`;
+            
+            // Template kalimat undangan WA
+            const waTemplate = `Assalamu'alaikum Warahmatullahi Wabarakatuh\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i:\n*${nameInput}*\n\nUntuk hadir dan memberikan doa restu pada acara pernikahan kami. Detail acara dapat dilihat pada tautan undangan digital berikut:\n\n${finalUrl}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di hari bahagia ini.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh\n\nKami yang berbahagia,\nAbi & Jannah`;
+            
+            document.getElementById('resultText').value = waTemplate;
+            document.getElementById('resultBox').style.display = 'block';
+        }
+
+        function copyToClipboard() {
+            const copyText = document.getElementById("resultText");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Teks dan Link berhasil disalin! Silakan paste di WhatsApp.");
+        }
+    </script>
+</body>
+</html>
