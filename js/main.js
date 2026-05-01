@@ -163,4 +163,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     startCountdown(appData.opening.date_highlight);
+
+    // 10. Background Particles (Gold Dust)
+    const createParticles = () => {
+        const container = document.getElementById('particles-bg');
+        if (!container) return;
+
+        const particleCount = 30;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'dust-particle';
+            
+            // Randomize position and animation
+            const size = Math.random() * 4 + 2;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(particle);
+        }
+    };
+
+    createParticles();
 });

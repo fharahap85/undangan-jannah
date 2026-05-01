@@ -5,7 +5,7 @@
     position: relative;
     opacity: 0;
     transform: translateY(30px);
-    transition: all 1.2s ease-out;
+    transition: all 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal.is-visible {
@@ -33,7 +33,7 @@
 
 /* Section Transitions */
 .content-wrapper {
-    transition: opacity 1.5s ease;
+    transition: opacity 2s ease-in-out;
 }
 
 .content-wrapper.hidden {
@@ -70,4 +70,31 @@
 
 .soft-float {
     animation: soft-float 4s ease-in-out infinite;
+}
+
+/* Background Particles (Gold Dust) */
+.particles-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.dust-particle {
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: dust-drift linear infinite;
+}
+
+@keyframes dust-drift {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    20% { opacity: 0.4; }
+    80% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
 }
