@@ -6,7 +6,7 @@
       "bg_dark": "#0f2027",
       "text": "#ffffff"
     },
-    "background_image": "assets/images/background-utama.JPG",
+    "background_image": "assets/images/background.JPG",
     "backsound": "assets/audio/Maidany.mp3"
   },
   "opening": {
