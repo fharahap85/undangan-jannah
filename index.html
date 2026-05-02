@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Digital</title>
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -16,15 +19,17 @@
 
     <!-- Meta Tags & Open Graph -->
     <meta name="description" content="Undangan Pernikahan Imam Habibi & Nurjannah. Kamis, 14 Mei 2026.">
-    
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jannah-abi.afhprojects.web.id/">
     <meta property="og:title" content="Walimatul 'Ursy - Imam & Jannah">
-    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.">
-    <meta property="og:image" content="https://jannah-abi.afhprojects.web.id/assets/images/thumbnail.jpg">
+    <meta property="og:description"
+        content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.">
+    <meta property="og:image" content="https://jannah-abi.afhprojects.web.id/assets/images/background.JPG">
 
     <meta property="twitter:card" content="summary_large_image">
 </head>
+
 <body>
     <div id="particles-bg" class="particles-bg"></div>
 
@@ -48,7 +53,7 @@
 
     <!-- Main Content Wrapper (Hidden initially) -->
     <main id="main-content" class="content-wrapper hidden">
-        
+
         <!-- Mukadimah Section -->
         <section id="mukadimah" class="section-padding container">
             <div class="quote-container text-center reveal">
@@ -77,7 +82,7 @@
         <!-- Acara Section -->
         <section id="acara" class="section-padding container">
             <h2 class="section-title text-center reveal">Waktu & Tempat</h2>
-            
+
             <!-- Countdown Timer -->
             <div id="countdown" class="countdown-container reveal mb-3">
                 <div class="countdown-item">
@@ -106,7 +111,8 @@
         <!-- Amplop Section -->
         <section id="amplop" class="section-padding container section-alt">
             <h2 class="section-title text-center reveal">Kado Digital</h2>
-            <p class="text-center reveal">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, Anda dapat mengirimkannya melalui:</p>
+            <p class="text-center reveal">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika
+                Anda ingin memberikan tanda kasih, Anda dapat mengirimkannya melalui:</p>
             <div id="bank-accounts" class="bank-grid flex-grid reveal">
                 <!-- Bank accounts will be injected here -->
             </div>
@@ -115,7 +121,7 @@
         <!-- Ucapan & RSVP Section -->
         <section id="ucapan" class="section-padding container">
             <h2 class="section-title text-center reveal">Ucapan & Doa</h2>
-            
+
             <!-- RSVP Form -->
             <div class="rsvp-form-container reveal">
                 <form id="form-rsvp">
@@ -133,10 +139,12 @@
                     </div>
                     <div class="form-group">
                         <label for="input-ucapan">Ucapan & Doa</label>
-                        <textarea id="input-ucapan" rows="4" required placeholder="Tuliskan ucapan dan doa terbaik Anda"></textarea>
+                        <textarea id="input-ucapan" rows="4" required
+                            placeholder="Tuliskan ucapan dan doa terbaik Anda"></textarea>
                     </div>
                     <button type="submit" class="btn-primary full-width">Kirim Ucapan</button>
-                    <button type="button" id="btn-wa-rsvp" class="btn-secondary full-width mt-1">Konfirmasi via WhatsApp</button>
+                    <button type="button" id="btn-wa-rsvp" class="btn-secondary full-width mt-1">Konfirmasi via
+                        WhatsApp</button>
                 </form>
             </div>
 
@@ -151,10 +159,12 @@
             <h2 class="section-title text-center reveal">Bagikan Kabar Bahagia</h2>
             <p class="text-center reveal">Bantu kami membagikan kabar bahagia ini kepada keluarga dan kerabat.</p>
             <div class="flex-grid mt-3 reveal">
-                <button id="btn-share-wa" class="btn-primary btn-icon" style="background-color: #25d366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+                <button id="btn-share-wa" class="btn-primary btn-icon"
+                    style="background-color: #25d366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
                     <img src="assets/images/icons/wa.svg" alt="WA"> WhatsApp
                 </button>
-                <button id="btn-share-tg" class="btn-primary btn-icon" style="background-color: #0088cc; box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);">
+                <button id="btn-share-tg" class="btn-primary btn-icon"
+                    style="background-color: #0088cc; box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);">
                     <img src="assets/images/icons/telegram.svg" alt="Telegram"> Telegram
                 </button>
                 <button id="btn-share-native" class="btn-primary btn-icon">
@@ -173,11 +183,16 @@
 
     <!-- Floating Navigation Menu -->
     <nav id="floating-menu" class="floating-menu hidden floating-anim">
-        <a href="#mukadimah" class="menu-item" title="Home"><img src="assets/images/icons/home.svg" class="icon" alt="Home"><span>Home</span></a>
-        <a href="#mempelai" class="menu-item" title="Mempelai"><img src="assets/images/icons/heart.svg" class="icon" alt="Mempelai"><span>Mempelai</span></a>
-        <a href="#acara" class="menu-item" title="Acara"><img src="assets/images/icons/calendar.svg" class="icon" alt="Acara"><span>Acara</span></a>
-        <a href="#amplop" class="menu-item" title="Kado"><img src="assets/images/icons/gift.svg" class="icon" alt="Kado"><span>Kado</span></a>
-        <a href="#ucapan" class="menu-item" title="Ucapan"><img src="assets/images/icons/message.svg" class="icon" alt="Ucapan"><span>Ucapan</span></a>
+        <a href="#mukadimah" class="menu-item" title="Home"><img src="assets/images/icons/home.svg" class="icon"
+                alt="Home"><span>Home</span></a>
+        <a href="#mempelai" class="menu-item" title="Mempelai"><img src="assets/images/icons/heart.svg" class="icon"
+                alt="Mempelai"><span>Mempelai</span></a>
+        <a href="#acara" class="menu-item" title="Acara"><img src="assets/images/icons/calendar.svg" class="icon"
+                alt="Acara"><span>Acara</span></a>
+        <a href="#amplop" class="menu-item" title="Kado"><img src="assets/images/icons/gift.svg" class="icon"
+                alt="Kado"><span>Kado</span></a>
+        <a href="#ucapan" class="menu-item" title="Ucapan"><img src="assets/images/icons/message.svg" class="icon"
+                alt="Ucapan"><span>Ucapan</span></a>
     </nav>
 
     <!-- Audio Player -->
@@ -195,4 +210,5 @@
     <script src="js/rsvp.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
