@@ -30,6 +30,34 @@ body {
     overflow-x: hidden;
 }
 
+/* Global Fixed Background (Halaman Selanjutnya) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/background-halaman.JPG');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -3;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparan Gelap */
+    z-index: -2;
+    pointer-events: none;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;

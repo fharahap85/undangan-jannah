@@ -6,7 +6,7 @@
       "bg_dark": "#0f2027",
       "text": "#ffffff"
     },
-    "background_image": "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070&auto=format&fit=crop",
+    "background_image": "assets/images/background-utama.JPG",
     "backsound": "assets/audio/Maidany.mp3"
   },
   "opening": {
